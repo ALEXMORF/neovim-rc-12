@@ -140,6 +140,8 @@ vim.pack.add({
   'https://github.com/rcarriga/nvim-dap-ui',
   -- statusline
   'https://github.com/nvim-lualine/lualine.nvim',
+  -- file explorer
+  'https://github.com/stevearc/oil.nvim.git',
 })
 
 --
@@ -156,6 +158,7 @@ require('lualine').setup {
       lualine_y = {'lsp_status', 'progress' },
   }
 }
+require('oil').setup {}
 
 vim.cmd('colorscheme catppuccin')
 
@@ -174,14 +177,19 @@ vim.lsp.enable('ruff')
 
 vim.keymap.set({ 'n' }, '<C-p>', MiniPick.builtin.files)
 vim.keymap.set({ 'n' }, '<M-j>', vim.lsp.buf.definition)
-vim.keymap.set({ 'n' }, '<M-k>', '<C-o>')
+vim.keymap.set({ 'n' }, '<M-k>', '<C-o>') -- jump back
+
 vim.keymap.set({ 'n' }, '<leader>gg', function()
     vim.cmd('LazyGit')
 end)
---vim.keymap.set({ 'n' }, 'grr', FzfLua.lsp_references)
+
 vim.keymap.set('n', '<m-o>', function()
     vim.cmd('LspClangdSwitchSourceHeader')
 end, { desc = "clangd switch header" })
+
+vim.keymap.set('n', '-', function()
+    vim.cmd('Oil')
+end)
 
 -- interactive terminal
 vim.keymap.set('n', '<leader>t', function()
