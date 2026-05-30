@@ -229,14 +229,14 @@ function BuildProject()
     on_stdout = function(_, data)
       if data then
         vim.fn.setqflist({}, 'a', { lines = data })
-        --vim.cmd("cwindow")
+        vim.cmd("cbottom")
       end
     end,
 
     on_stderr = function(_, data)
       if data then
         vim.fn.setqflist({}, 'a', { lines = data })
-        --vim.cmd("cwindow")
+        vim.cmd("cbottom")
       end
     end,
 
