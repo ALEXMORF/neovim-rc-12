@@ -126,7 +126,7 @@ vim.pack.add({
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/neovim/nvim-lspconfig',
   -- finder
-  'https://github.com/ibhagwan/fzf-lua',
+  'https://github.com/nvim-mini/mini.pick',
   -- autocomplete
   'https://github.com/nvim-mini/mini.completion',
   -- Enhanced quickfix/loclist
@@ -147,8 +147,7 @@ vim.pack.add({
 -- basic inits
 
 require('mason').setup()
-FzfLua = require('fzf-lua')
-FzfLua.setup { fzf_colors = true }
+require('mini.pick').setup {}
 require('mini.completion').setup {}
 require('quicker').setup {}
 require('gitsigns').setup {}
@@ -169,13 +168,13 @@ vim.lsp.enable('ruff')
 --
 -- keymaps
 
-vim.keymap.set({ 'n' }, '<C-p>', FzfLua.files)
+vim.keymap.set({ 'n' }, '<C-p>', MiniPick.builtin.files)
 vim.keymap.set({ 'n' }, '<M-j>', vim.lsp.buf.definition)
 vim.keymap.set({ 'n' }, '<M-k>', '<C-o>')
 vim.keymap.set({ 'n' }, '<leader>gg', function()
     vim.cmd('LazyGit')
 end)
-vim.keymap.set({ 'n' }, 'grr', FzfLua.lsp_references)
+--vim.keymap.set({ 'n' }, 'grr', FzfLua.lsp_references)
 vim.keymap.set('n', '<m-o>', function()
     vim.cmd('LspClangdSwitchSourceHeader')
 end, { desc = "clangd switch header" })
