@@ -151,7 +151,11 @@ require('mini.pick').setup {}
 require('mini.completion').setup {}
 require('quicker').setup {}
 require('gitsigns').setup {}
-require('lualine').setup {}
+require('lualine').setup {
+  sections = {
+      lualine_y = {'lsp_status', 'progress' },
+  }
+}
 
 vim.cmd('colorscheme catppuccin')
 
