@@ -120,6 +120,8 @@ vim.cmd('packadd! nohlsearch')
 
 -- Install third-party plugins via "vim.pack.add()".
 vim.pack.add({
+  -- icons
+  'https://github.com/nvim-tree/nvim-web-devicons',
   -- LSP
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/neovim/nvim-lspconfig',
@@ -136,6 +138,8 @@ vim.pack.add({
   'https://github.com/mfussenegger/nvim-dap',
   'https://github.com/nvim-neotest/nvim-nio',
   'https://github.com/rcarriga/nvim-dap-ui',
+  -- statusline
+  'https://github.com/nvim-lualine/lualine.nvim',
 })
 
 --
@@ -148,6 +152,7 @@ FzfLua.setup { fzf_colors = true }
 require('mini.completion').setup {}
 require('quicker').setup {}
 require('gitsigns').setup {}
+require('lualine').setup {}
 
 vim.cmd('colorscheme catppuccin')
 
