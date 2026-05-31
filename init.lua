@@ -180,6 +180,8 @@ vim.lsp.enable('ruff')
 -- keymaps
 
 vim.keymap.set({ 'n' }, '<C-p>', MiniPick.builtin.files)
+vim.keymap.set({ 'n' }, '<leader>ff', MiniPick.builtin.files)
+vim.keymap.set({ 'n' }, '<leader>fg', MiniPick.builtin.grep_live)
 vim.keymap.set({ 'n' }, '<M-j>', vim.lsp.buf.definition)
 vim.keymap.set({ 'n' }, '<M-k>', '<C-o>') -- jump back
 
