@@ -39,6 +39,10 @@ vim.o.list = true -- Show <tab> and trailing spaces.
 -- instead raise a dialog asking if you wish to save the current file(s). See `:h 'confirm'`
 vim.o.confirm = true
 
+-- automatically focus cursor in new window
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 vim.o.wrap = false
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
@@ -335,7 +339,7 @@ vim.keymap.set('n', '<F17>', dap.terminate, { desc = "DAP: terminate" }) -- term
 vim.keymap.set('n', '<s-F5>', dap.terminate, { desc = "DAP: terminate" })
 vim.keymap.set('n', '<F10>', dap.step_over, { desc = "DAP: step over" })
 vim.keymap.set('n', '<F11>', dap.step_into, { desc = "DAP: step into" })
-vim.keymap.set('n', '<F23>', dap.terminate, { desc = "DAP: terminate" }) -- terminal-mode keycode for s-F11
+vim.keymap.set('n', '<F23>', dap.step_out, { desc = "DAP: step out" }) -- terminal-mode keycode for s-F11
 vim.keymap.set('n', '<s-F11>', dap.step_out, { desc = "DAP: step out" })
 vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = "DAP: toggle breakpoint" })
 
