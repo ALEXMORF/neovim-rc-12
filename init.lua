@@ -146,6 +146,8 @@ vim.pack.add({
   'https://github.com/nvim-lualine/lualine.nvim',
   -- file explorer
   'https://github.com/stevearc/oil.nvim.git',
+  -- color themes
+  'https://github.com/ellisonleao/gruvbox.nvim',
 })
 
 --
@@ -164,7 +166,25 @@ require('lualine').setup {
 }
 require('oil').setup {}
 
-vim.cmd('colorscheme catppuccin')
+require('gruvbox').setup {
+  undercurl = false,
+  underline = false,
+  bold = false,
+  italic = {
+    strings = false,
+    emphasis = false,
+    comments = false,
+    operators = false,
+    folds = false,
+  },
+  strikethrough = false,
+  contrast = "", -- can be "hard", "soft" or empty string
+  dim_inactive = true,
+  transparent_mode = false,
+}
+vim.cmd('colorscheme gruvbox')
+
+--vim.cmd('colorscheme catppuccin')
 
 --
 --
