@@ -159,7 +159,7 @@ require('mason').setup()
 require('mini.icons').setup()
 require('mini.pick').setup {}
 require('mini.completion').setup {
-  delay = { completion = math.huge }, -- manual trigger autocomplete
+  --delay = { completion = math.huge }, -- manual trigger autocomplete
 }
 require('quicker').setup {}
 require('gitsigns').setup {}
