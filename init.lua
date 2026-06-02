@@ -126,6 +126,7 @@ vim.cmd('packadd! nohlsearch')
 vim.pack.add({
   -- icons
   'https://github.com/nvim-tree/nvim-web-devicons',
+  'https://github.com/nvim-mini/mini.icons',
   -- LSP
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/neovim/nvim-lspconfig',
@@ -155,8 +156,11 @@ vim.pack.add({
 -- basic inits
 
 require('mason').setup()
+require('mini.icons').setup()
 require('mini.pick').setup {}
-require('mini.completion').setup {}
+require('mini.completion').setup {
+  delay = { completion = math.huge }, -- manual trigger autocomplete
+}
 require('quicker').setup {}
 require('gitsigns').setup {}
 require('lualine').setup {
