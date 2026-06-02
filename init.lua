@@ -224,7 +224,7 @@ vim.keymap.set('n', '<leader>t', function()
 end, { desc = "open terminal" })
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
 })
 
 --
@@ -441,3 +441,7 @@ end, { desc = "DAP: Show stacks in floating window" })
 vim.keymap.set('n', '<leader>dc', function()
     dapui.float_element('console', { enter = true })
 end, { desc = "DAP: Show console in floating window" })
+
+-- TODO:
+--    TAB to autocomplete
+--    autocomplete should only source from LSP, not from random shit
