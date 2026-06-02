@@ -223,9 +223,12 @@ vim.keymap.set('n', '<leader>t', function()
     vim.cmd('startinsert')
 end, { desc = "open terminal" })
 
+-- diagnostics
 vim.diagnostic.config({
   virtual_text = true,
 })
+vim.keymap.set({ 'n' }, '<leader>wh', vim.diagnostic.hide)
+vim.keymap.set({ 'n' }, '<leader>ws', vim.diagnostic.show)
 
 --
 --
