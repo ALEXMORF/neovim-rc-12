@@ -194,10 +194,17 @@ vim.cmd('colorscheme gruvbox')
 --
 -- LSP setup
 
+vim.filetype.add({
+  extension = {
+    hlsl = "hlsl",
+  },
+})
+
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('clangd')
 vim.lsp.enable('pyright')
 vim.lsp.enable('ruff')
+vim.lsp.enable('slangd')
 
 --
 --
