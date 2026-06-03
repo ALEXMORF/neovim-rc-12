@@ -149,6 +149,8 @@ vim.pack.add({
   'https://github.com/stevearc/oil.nvim.git',
   -- color themes
   'https://github.com/ellisonleao/gruvbox.nvim',
+  -- syntax highlights
+  'https://github.com/beyondmarc/hlsl.vim',
 })
 
 --
