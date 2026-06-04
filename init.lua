@@ -132,6 +132,7 @@ vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
   -- finder
   'https://github.com/nvim-mini/mini.pick',
+  'https://github.com/folke/flash.nvim',
   -- autocomplete
   'https://github.com/nvim-mini/mini.completion',
   -- Enhanced quickfix/loclist
@@ -171,6 +172,7 @@ require('lualine').setup {
   }
 }
 require('oil').setup {}
+require('flash').setup {}
 
 require('gruvbox').setup {
   undercurl = false,
@@ -229,6 +231,10 @@ end, { desc = "clangd switch header" })
 vim.keymap.set('n', '-', function()
     vim.cmd('Oil')
 end)
+
+-- flash.nvim
+vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash" })
+vim.keymap.set({ "o" }, "r", function() require("flash").remote() end, {desc = "Remote Flash" })
 
 -- interactive terminal
 vim.keymap.set('n', '<leader>t', function()
