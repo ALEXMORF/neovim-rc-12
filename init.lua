@@ -129,6 +129,7 @@ vim.pack.add({
   'https://github.com/nvim-mini/mini.icons',
   -- LSP
   'https://github.com/mason-org/mason.nvim',
+  'https://github.com/folke/lazydev.nvim',
   'https://github.com/neovim/nvim-lspconfig',
   -- finder
   'https://github.com/nvim-mini/mini.pick',
@@ -158,9 +159,23 @@ vim.pack.add({
 --
 -- basic inits
 
+-- centered on screen for mini.pick (grabbed from MiniPick help page)
+local win_config = function()
+    local height = math.floor(0.618 * vim.o.lines)
+    local width = math.floor(0.618 * vim.o.columns)
+    return {
+        anchor = 'NW', height = height, width = width,
+        row = math.floor(0.5 * (vim.o.lines - height)),
+        col = math.floor(0.5 * (vim.o.columns - width)),
+    }
+end
+
+require('lazydev').setup()
 require('mason').setup()
 require('mini.icons').setup()
-require('mini.pick').setup {}
+require('mini.pick').setup {
+  window = { config = win_config },
+}
 require('mini.completion').setup {
   --delay = { completion = math.huge }, -- manual trigger autocomplete
 }
@@ -217,6 +232,7 @@ vim.lsp.enable('slangd')
 vim.keymap.set({ 'n' }, '<C-p>', MiniPick.builtin.files)
 vim.keymap.set({ 'n' }, '<leader>ff', MiniPick.builtin.files)
 vim.keymap.set({ 'n' }, '<leader>fg', MiniPick.builtin.grep_live)
+vim.keymap.set({ 'n' }, '<leader>fh', MiniPick.builtin.help)
 vim.keymap.set({ 'n' }, '<M-j>', vim.lsp.buf.definition)
 vim.keymap.set({ 'n' }, '<M-k>', '<C-o>') -- jump back
 
@@ -465,5 +481,5 @@ vim.keymap.set('n', '<leader>dc', function()
 end, { desc = "DAP: Show console in floating window" })
 
 -- TODO:
---    TAB to autocomplete
---    autocomplete should only source from LSP, not from random shit
+--   mini.pick LSP references
+--   mini.pick LSP symbols
