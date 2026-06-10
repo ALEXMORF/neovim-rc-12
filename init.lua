@@ -89,6 +89,16 @@ vim.keymap.set({ 'n' }, '<A-j>', '<C-w>j')
 vim.keymap.set({ 'n' }, '<A-k>', '<C-w>k')
 vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 
+vim.keymap.set({ 'n' }, '<C-j>', '3jzz')
+vim.keymap.set({ 'n' }, '<C-k>', '3kzz')
+
+-- TAB for autocomplete
+local imap_expr = function(lhs, rhs)
+    vim.keymap.set('i', lhs, rhs, { expr = true })
+end
+imap_expr('<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
+imap_expr('<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
+
 -- AUTOCOMMANDS (EVENT HANDLERS)
 --
 -- See `:h lua-guide-autocommands`, `:h autocmd`, `:h nvim_create_autocmd()`
@@ -483,3 +493,4 @@ end, { desc = "DAP: Show console in floating window" })
 -- TODO:
 --   mini.pick LSP references
 --   mini.pick LSP symbols
+--   non-retarded DAP debugger controls
