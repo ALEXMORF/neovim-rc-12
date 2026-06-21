@@ -216,6 +216,7 @@ require('gruvbox').setup {
   transparent_mode = false,
 }
 vim.cmd('colorscheme gruvbox')
+vim.o.background = 'light'
 
 --vim.cmd('colorscheme catppuccin')
 
@@ -231,6 +232,9 @@ vim.filetype.add({
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('clangd')
+vim.lsp.config('clangd', {
+    cmd = { 'clangd', '--header-insertion=never' }
+})
 vim.lsp.enable('pyright')
 vim.lsp.enable('ruff')
 vim.lsp.enable('slangd')
